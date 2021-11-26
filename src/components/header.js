@@ -2,10 +2,10 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 
-const Header = ({ siteTitle }) => (
+const Header = () => (
   <header
     style={{
-      background: `#495bfc`,
+      background: `#333333`,
       marginBottom: `1.45rem`,
     }}
   >
@@ -13,7 +13,7 @@ const Header = ({ siteTitle }) => (
       style={{
         margin: `0 auto`,
         maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
+        padding: "20px 0px 10px 0px"
       }}
     >
       <h1 style={{ margin: 0 }}>
@@ -24,7 +24,7 @@ const Header = ({ siteTitle }) => (
             textDecoration: `none`,
           }}
         >
-          {siteTitle}
+          <img style={{ width: 48, margin: 0 }} src="logo.svg"/>
         </Link>
       </h1>
     </div>
