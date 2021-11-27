@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Overlayed`,
     description: `A Discord overlay that just works™`,
-    author: `@gatsbyjs`,
+    author: `Hacksore`,
     siteUrl: `https://overlayed.dev`,
   },
   plugins: [
@@ -24,15 +24,17 @@ module.exports = {
         short_name: `starter`,
         start_url: `/`,
         background_color: `#5A65EA`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        typekit: {
+          id: process.env.TYPEKIT_ID,
+        },
+      },
+    },
   ],
 }
