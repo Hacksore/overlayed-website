@@ -5,6 +5,12 @@ module.exports = {
     author: `Hacksore`,
     siteUrl: `https://overlayed.dev`,
   },
+  proxy: [
+    {
+      prefix: "/api",
+      url: "http://localhost:5000",
+    },
+  ],
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
