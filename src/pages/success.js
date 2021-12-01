@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import Layout from "../components/layout";
 import Seo from "../components/seo";
@@ -6,6 +6,7 @@ import Seo from "../components/seo";
 import "./index.css";
 
 const AuthSuccessPage = () => {
+  const [tokenAck, setTokenAck] = useState(false);
 
   useEffect(() => {
     const authData = localStorage.getItem("auth");
@@ -17,6 +18,14 @@ const AuthSuccessPage = () => {
       headers: {
         "Content-Type": "application/json"
       }
+    }).then(res => res.json())
+    .then(res => {
+      if (!res.error) {
+        setTokenAck(true);
+
+        // we dont want to keep the token
+        localStorage.removeItem("auth");
+      }
     });
 
   }, []);
@@ -24,8 +33,13 @@ const AuthSuccessPage = () => {
   return (
     <Layout>
       <Seo title="Overlayed" />
-      <h1>Auth worked, telling Overlayed</h1>
- 
+      <h1>Auth succesful, telling Overlayed</h1>
+    
+
+      {tokenAck && (
+        <h3>You can close this page now</h3>
+      )}
+
     </Layout>
   );
 };

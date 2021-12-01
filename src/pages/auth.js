@@ -6,11 +6,16 @@ import Seo from "../components/seo";
 
 import "./index.css";
 
+const API_BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://auth.overlayed.dev"
+    : "http://localhost:3000";
+
 const AuthCallbackPage = () => {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
 
-    fetch("https://auth.overlayed.dev/token", {
+    fetch(`${API_BASE_URL}/token`, {
       method: "POST",
       body: JSON.stringify({
         code: params.get("code"),

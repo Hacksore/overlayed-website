@@ -24,7 +24,7 @@ const Header = () => (
             textDecoration: `none`,
           }}
         >
-          <img alt="overlayed" style={{ width: 48, margin: "0 0 0 10px" }} src="logo.svg"/>
+          <img alt="overlayed" style={{ width: 48, margin: "0 0 0 10px" }} src="/logo.svg"/>
         </Link>
       </h1>
     </div>
