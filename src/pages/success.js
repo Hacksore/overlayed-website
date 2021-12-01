@@ -16,30 +16,26 @@ const AuthSuccessPage = () => {
       method: "POST",
       body: authData,
       headers: {
-        "Content-Type": "application/json"
-      }
-    }).then(res => res.json())
-    .then(res => {
-      if (!res.error) {
-        setTokenAck(true);
+        "Content-Type": "application/json",
+      },
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (!res.error) {
+          setTokenAck(true);
 
-        // we dont want to keep the token
-        localStorage.removeItem("auth");
-      }
-    });
-
+          // we dont want to keep the token
+          localStorage.removeItem("auth");
+        }
+      });
   }, []);
 
   return (
     <Layout>
       <Seo title="Overlayed" />
-      <h1>Auth succesful, telling Overlayed</h1>
-    
+      <h1>Auth Successful</h1>
 
-      {tokenAck && (
-        <h3>You can close this page now</h3>
-      )}
-
+      {tokenAck && <h3>You can close this page now</h3>}
     </Layout>
   );
 };
