@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "Hacksore",
   "dependencies": {
-    "@fontsource/open-sans": "^4.5.2",
+    "@fontsource/roboto": "^4.5.1",
     "gatsby": "^4.2.0",
     "gatsby-plugin-gatsby-cloud": "^4.2.0",
     "gatsby-plugin-image": "^2.2.0",

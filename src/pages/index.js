@@ -39,6 +39,26 @@ const IndexPage = () => {
         overlay built with electron and react. With overlayed you can track who
         is speaking in your voice channel without having to open discord.
       </p>
+ 
+      <p>
+        Since the{" "}
+        <a
+          href="https://discord.com/developers/docs/topics/rpc"
+          target="_blank"
+        >
+          Discord RPC API
+        </a>{" "}
+        is a private beta you need to request access to the overlayed
+        application. Please see{" "}
+        <a
+          href="https://github.com/Hacksore/overlayed/issues/2"
+          target="_blank"
+        >
+          this issue on github
+        </a>{" "}
+        for more information on how to do that.
+      </p>
+
       <p>
         Grab the latest version for your platform below and if you find any bugs
         please{" "}
@@ -59,13 +79,9 @@ const IndexPage = () => {
         <h4 style={{ marginTop: 20 }}>Latest Version {relaseData?.name}</h4>
       </a>
 
-      <StaticImage
-        src="../images/screenshot-1.png"
-        width={860}
-        quality={95}
-        formats={["auto", "webp", "avif"]}
-        alt="A screenshot of overlayed"
-      />
+      <video style={{ width: "100% " }} controls loop autoPlay muted>
+        <source src="/demo.mp4" type="video/mp4" />
+      </video>
     </Layout>
   );
 };
