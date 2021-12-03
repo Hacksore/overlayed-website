@@ -49,7 +49,7 @@ function Seo({ description, lang, meta, title }) {
         },
         {
           property: `og:image`,
-          content: site.image,
+          content: site.siteMetadata.image,
         },
         {
           property: `og:type`,
