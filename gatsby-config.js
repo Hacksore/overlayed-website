@@ -3,8 +3,9 @@ module.exports = {
     title: `Overlayed`,
     description: `A Discord overlay that just works™`,
     author: `Hacksore`,
-    image: `/header.png`,
+    image: `header.png`,
     siteUrl: `https://overlayed.dev`,
+    twitterUsername: "@OverlayedDev",
   },
   proxy: [
     {

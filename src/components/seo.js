@@ -18,15 +18,17 @@ function Seo({ description, lang, meta, title }) {
           siteMetadata {
             title
             description
+            twitterUsername
+            siteUrl
             image
-            author
           }
         }
       }
     `
   );
 
-  const metaDescription = description || site.siteMetadata.description;
+  const { siteUrl, image, twitterUsername, description: defaultDescription } = site.siteMetadata;
+  const metaDescription = description || defaultDescription;
 
   return (
     <Helmet
@@ -49,7 +51,7 @@ function Seo({ description, lang, meta, title }) {
         },
         {
           property: `og:image`,
-          content: site.siteMetadata.image,
+          content: `${siteUrl}/${image}`,
         },
         {
           property: `og:type`,
@@ -61,11 +63,15 @@ function Seo({ description, lang, meta, title }) {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata?.author || ``,
+          content: twitterUsername,
         },
         {
           name: `twitter:title`,
           content: title,
+        },
+        {
+          property: `twitter:image`,
+          content: `${siteUrl}/${image}`,
         },
         {
           name: `twitter:description`,
