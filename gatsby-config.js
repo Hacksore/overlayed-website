@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Overlayed`,
     description: `A Discord overlay that just works™`,
+    longDescription: `With Overlayed you can view who is talking in your voice channel`,
     author: `Hacksore`,
     image: `header.png`,
     siteUrl: `https://overlayed.dev`,

@@ -18,6 +18,7 @@ function Seo({ description, lang, meta, title }) {
           siteMetadata {
             title
             description
+            longDescription
             twitterUsername
             siteUrl
             image
@@ -27,7 +28,7 @@ function Seo({ description, lang, meta, title }) {
     `
   );
 
-  const { siteUrl, image, twitterUsername, description: defaultDescription } = site.siteMetadata;
+  const { siteUrl, longDescription, image, twitterUsername, description: defaultDescription } = site.siteMetadata;
   const metaDescription = description || defaultDescription;
 
   return (
@@ -39,15 +40,15 @@ function Seo({ description, lang, meta, title }) {
       meta={[
         {
           name: `description`,
-          content: metaDescription,
+          content: longDescription,
         },
         {
           property: `og:title`,
-          content: title,
+          content: `${title} - ${metaDescription}`,
         },
         {
           property: `og:description`,
-          content: metaDescription,
+          content: longDescription,
         },
         {
           property: `og:image`,
@@ -67,7 +68,7 @@ function Seo({ description, lang, meta, title }) {
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: `${title} - ${metaDescription}`,
         },
         {
           property: `twitter:image`,
@@ -75,7 +76,7 @@ function Seo({ description, lang, meta, title }) {
         },
         {
           name: `twitter:description`,
-          content: metaDescription,
+          content: longDescription,
         },
       ].concat(meta)}
     />
