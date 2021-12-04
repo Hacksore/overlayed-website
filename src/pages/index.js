@@ -7,27 +7,12 @@ import Seo from "../components/seo";
 import "./index.css";
 
 const IndexPage = () => {
-  const [relaseData, setReleaseData] = useState(null);
+  const [data, setData] = useState();
   useEffect(() => {
-    fetch("https://api.github.com/repos/Hacksore/overlayed/releases/latest")
+    fetch("/api/releases")
       .then(res => res.json())
-      .then(res => setReleaseData(res));
+      .then(res => setData(res));
   }, []);
-
-  const downloads =
-    relaseData?.assets.map(item => {
-      if (item.browser_download_url.includes("mac")) {
-        return { platform: "Mac", url: item.browser_download_url };
-      }
-      if (item.browser_download_url.includes("win")) {
-        return { platform: "Windows", url: item.browser_download_url };
-      }
-      if (item.browser_download_url.includes("linux")) {
-        return { platform: "Linux", url: item.browser_download_url };
-      }
-
-      return {};
-    }) || [];
 
   return (
     <Layout>
@@ -39,7 +24,7 @@ const IndexPage = () => {
         overlay built with electron and react. With overlayed you can track who
         is speaking in your voice channel without having to open discord.
       </p>
- 
+
       <p>
         Since the{" "}
         <a
@@ -68,16 +53,20 @@ const IndexPage = () => {
         .
       </p>
 
-      <div style={{ display: "flex" }}>
-        {downloads.map(item => (
-          <a href={item?.url} className="button">
-            {item?.platform}
+      {data && (
+        <>
+          <div style={{ display: "flex" }}>
+            {data.downloads.map(item => (
+              <a href={item?.url} className="button">
+                {item?.platform}
+              </a>
+            ))}
+          </div>
+          <a href={data.url} target="_blank">
+            <h4 style={{ marginTop: 20 }}>Latest Version {data.name}</h4>
           </a>
-        ))}
-      </div>
-      <a href={relaseData?.html_url} target="_blank">
-        <h4 style={{ marginTop: 20 }}>Latest Version {relaseData?.name}</h4>
-      </a>
+        </>
+      )}
 
       <video style={{ width: "100% " }} controls loop autoPlay muted>
         <source src="/demo.mp4" type="video/mp4" />

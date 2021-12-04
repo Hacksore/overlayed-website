@@ -6,26 +6,25 @@ import Seo from "../components/seo";
 
 import "./index.css";
 
-const API_BASE_URL =
-  process.env.NODE_ENV === "production"
-    ? "https://auth.overlayed.dev"
-    : "http://localhost:3000";
-
 const AuthCallbackPage = () => {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-
-    fetch(`${API_BASE_URL}/token`, {
+    fetch("/api/token", {
       method: "POST",
       body: JSON.stringify({
         code: params.get("code"),
       }),
+      headers: {
+        "Content-Type": "application/json",
+      },
     })
       .then(res => res.json())
       .then(res => {
         if (res.access_token) {
           localStorage.setItem("auth", JSON.stringify(res));
           navigate("/success");
+        } else {
+          navigate("/failed");
         }
       });
   }, []);
