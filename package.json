@@ -28,7 +28,8 @@
     "@types/express": "^4.17.13",
     "@vercel/node": "^1.12.1",
     "gatsby-plugin-google-gtag": "^4.3.0",
-    "prettier": "^2.4.1"
+    "prettier": "^2.4.1",
+    "vercel": "^23.1.2"
   },
   "keywords": [
     "react",
@@ -39,7 +40,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "gatsby develop",
+    "start": "vercel dev",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
