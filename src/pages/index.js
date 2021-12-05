@@ -19,7 +19,7 @@ const IndexPage = () => {
       <h1>Overlayed</h1>
       <p>
         This is an{" "}
-        <a href="https://github.com/Hacksore/overlayed">open source</a> discord
+        <a href="https://github.com/Hacksore/overlayed" rel="noreferrer">open source</a> discord
         overlay built with electron and react. With overlayed you can track who
         is speaking in your voice channel without having to open discord.
       </p>
@@ -29,6 +29,7 @@ const IndexPage = () => {
         <a
           href="https://discord.com/developers/docs/topics/rpc"
           target="_blank"
+          rel="noreferrer"
         >
           Discord RPC API
         </a>{" "}
@@ -37,6 +38,7 @@ const IndexPage = () => {
         <a
           href="https://github.com/Hacksore/overlayed/issues/2"
           target="_blank"
+          rel="noreferrer"
         >
           this issue on github
         </a>{" "}
@@ -46,7 +48,7 @@ const IndexPage = () => {
       <p>
         Grab the latest version for your platform below and if you find any bugs
         please{" "}
-        <a href="https://github.com/Hacksore/overlayed/issues" target="_blank">
+        <a href="https://github.com/Hacksore/overlayed/issues" target="_blank" rel="noreferrer">
           raise an issue
         </a>
         .
@@ -56,12 +58,12 @@ const IndexPage = () => {
         <>
           <div style={{ display: "flex" }}>
             {data.downloads.map(item => (
-              <a href={item?.url} className="button">
+              <a href={item?.url} className="button" target="_blank" rel="noreferrer">
                 {item?.platform}
               </a>
             ))}
           </div>
-          <a href={data.url} target="_blank">
+          <a href={data.url} target="_blank" rel="noreferrer">
             <h4 style={{ marginTop: 20 }}>Latest Version {data.name}</h4>
           </a>
         </>

@@ -38,11 +38,15 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-web-font-loader",
+      resolve: `gatsby-plugin-google-analytics`,
       options: {
-        typekit: {
-          id: process.env.TYPEKIT_ID,
-        },
+        trackingId: "G-63SKWNFF03",
+        head: false,
+        pageTransitionDelay: 0,
+        defer: false,
+        sampleRate: 5,
+        siteSpeedSampleRate: 10,
+        cookieDomain: "overlayed.dev",
       },
     },
   ],
