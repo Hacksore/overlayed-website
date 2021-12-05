@@ -38,15 +38,15 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: "G-63SKWNFF03",
-        head: false,
-        pageTransitionDelay: 0,
-        defer: false,
-        sampleRate: 5,
-        siteSpeedSampleRate: 10,
-        cookieDomain: "overlayed.dev",
+        // You can add multiple tracking ids and a pageview event will be fired for all of them.
+        trackingIds: [
+          "G-63SKWNFF03", // Google Analytics / GA
+        ],
+        pluginConfig: {
+          head: false,
+        },
       },
     },
   ],
