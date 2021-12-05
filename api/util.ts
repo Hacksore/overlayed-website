@@ -1,7 +1,7 @@
 import got from "got";
 
-const { CLIENT_ID, CLIENT_SECRET, ENV } = process.env;
-export const IS_PROD = ENV === "production";
+const { CLIENT_ID, CLIENT_SECRET, VERCEL_ENV } = process.env;
+export const IS_PROD = VERCEL_ENV === "production";
 
 export const fetchAuthToken = code => {
   const baseUrl = IS_PROD ? "https://overlayed.dev" : "http://localhost:3000";
