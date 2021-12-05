@@ -33,7 +33,7 @@ app.get("/api/releases", async (req, res) => {
 });
 
 app.get("/", async (req, res) => {
-  res.send("Overlayed API");
+  res.send("Overlayed API Service");
 });
 
 export default app;
