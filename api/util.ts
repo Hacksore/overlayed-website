@@ -52,8 +52,6 @@ export const fetchReleases = async () => {
     }
   })
 
-  console.log(downloads);
-
   return {
     downloads: downloads.reverse(),
     name: response.name,
