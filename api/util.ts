@@ -30,31 +30,34 @@ export const fetchReleases = async () => {
       throwHttpErrors: false,
       headers: {
         "User-Agent": "overlayed-api",
-        "Accept": "application/json"
+        Accept: "application/json",
       },
     }
   ).json();
 
   // transform
-  const downloads =
-    response.assets.map(item => {
-      if (item.browser_download_url.includes("mac")) {
-        return { platform: "Mac", url: item.browser_download_url };
-      }
-      if (item.browser_download_url.includes("win")) {
-        return { platform: "Windows", url: item.browser_download_url };
-      }
-      if (item.browser_download_url.includes("linux")) {
-        return { platform: "Linux", url: item.browser_download_url };
-      }
+  const downloads = [];
+  response.assets.forEach(item => {
+    if (item.browser_download_url.endsWith("win-x64.exe")) {
+      downloads.push({ platform: "Windows", url: item.browser_download_url });
+    }
+    if (item.browser_download_url.endsWith("linux-x64.zip")) {
+      downloads.push({ platform: "Linux", url: item.browser_download_url });
+    }
+    if (item.browser_download_url.endsWith("mac-x64.dmg")) {
+      downloads.push({ platform: "Mac (Intel)", url: item.browser_download_url });
+    }
+    if (item.browser_download_url.endsWith("mac-arm64.dmg")) {
+      downloads.push({ platform: "Mac (ARM)", url: item.browser_download_url });
+    }
+  })
 
-      return {};
-    }) || [];
+  console.log(downloads);
 
-  return { 
-    downloads,
+  return {
+    downloads: downloads.reverse(),
     name: response.name,
     url: response.html_url,
-    latestVersion: response.name
-  }
+    latestVersion: response.name,
+  };
 };
