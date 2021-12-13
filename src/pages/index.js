@@ -64,7 +64,7 @@ const IndexPage = () => {
             ))}
           </div>
           <a href={data.url} target="_blank" rel="noreferrer">
-            <h4 style={{ marginTop: 20 }}>Latest Version {data.name}</h4>
+            <h4 style={{ marginTop: 20 }}>Latest Release {data.name}</h4>
           </a>
         </>
       )}
