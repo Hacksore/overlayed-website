@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import Layout from "../components/layout";
 import Seo from "../components/seo";
+import { WarningBanner } from "../components/warningBanner";
 
 import "./index.css";
 
@@ -17,6 +18,7 @@ const IndexPage = () => {
     <Layout>
       <Seo title="Overlayed" />
       <h1>Overlayed</h1>
+      <WarningBanner />
       <p>
         This is an{" "}
         <a href="https://github.com/Hacksore/overlayed" rel="noreferrer">open source</a> discord
