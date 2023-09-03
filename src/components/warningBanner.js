@@ -13,7 +13,7 @@ export const WarningBanner = () => {
         marginBottom: 20,
       }}
     >
-      Warning this application requires you to add "Hacksore#1984" as a friend
+      Warning this application requires you to add "Hacksore" as a friend
       and be invited to the Overlayed App{" "}
       <a
         style={{ fontSize: 20 }}
